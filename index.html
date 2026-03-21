@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-mod-js gsap-not-found">
+<html data-wf-domain="shanesayers.com" data-wf-page="68945fe30f07ec4fa0eede0a" data-wf-site="68945fe30f07ec4fa0eedd9c" lang="en" class="w-mod-js gsap-not-found">
 <head>
 <meta charset="utf-8">
 <title>Home | Rohit Thakur - Engineering with Intelligence</title>
@@ -70,57 +70,106 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 .text-pretty { text-wrap: pretty; }
 #rocket-man { transform: scaleX(-1); }
 .social-sidebar {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  z-index: 999;
+  position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; z-index: 999;
 }
 .social-sidebar a {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(16, 15, 15, 0.92); border: 2px solid rgba(255, 255, 255, 0.72); border-radius: 50%; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 10px 24px rgba(16, 15, 15, 0.35);
 }
 .social-sidebar a:hover {
-  background: rgba(187, 76, 76, 0.8);
-  border-color: rgba(187, 76, 76, 1);
-  transform: scale(1.1);
+  background: rgba(187, 76, 76, 0.95); border-color: #fff; transform: scale(1.12);
 }
-.social-sidebar svg {
-  width: 24px;
-  height: 24px;
+.social-sidebar svg { width: 26px; height: 26px; fill: #fff; }
+.project-background { overflow: hidden; width: 100%; height: 100%; }
+.image-full { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
+
+/* About section: keep text/image in two columns on desktop and blend photo into page */
+.about-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
 }
-.project-background {
+.about-copy {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-top: 6rem;
+}
+.about-photo-wrap {
+  flex: 0 0 clamp(300px, 40vw, 500px);
+  position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  align-self: flex-start;
+  margin-top: -2.5rem;
 }
-.image-full {
+.about-photo {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  height: auto;
   display: block;
+  opacity: 0.74;
+  mix-blend-mode: multiply;
+  filter: saturate(0.95) contrast(0.97);
+  transform: scale(1.08);
+  transform-origin: top center;
 }
-@media (max-width: 768px) {
-  .social-sidebar {
-    right: 1rem;
+.about-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 18%;
+  background: linear-gradient(to bottom, rgba(247, 242, 226, 0), rgba(247, 242, 226, 0.58) 72%, rgba(247, 242, 226, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Override default hand-pointing position for About section alignment */
+.section-about-home .hand-pointing_wrap {
+  top: 31%;
+  right: -1%;
+  z-index: 12;
+  transform: rotate(27deg);
+  transform-origin: center center;
+}
+
+.hand-entry-motion {
+  will-change: transform;
+}
+
+.works-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resume-download-btn {
+  display: inline-flex !important;
+  width: 350px !important;
+  flex: 0 0 auto;
+  padding-left: rem !important;
+  padding-right: 1rem !important;
+  margin-left: 8rem;
+
+}
+@media (max-width: 768px) { .social-sidebar { right: 1rem; } }
+@media (max-width: 991px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .about-copy {
+    margin-top: 0;
+  }
+  .about-photo-wrap {
+    width: min(340px, 100%);
+  }
+  .section-about-home .hand-pointing_wrap {
+    top: 20%;
+    right: -8%;
   }
 }
 </style>
 </div>
 
-<main class="main-wrapper">
+<main style="opacity:0" class="main-wrapper">
 
 <div class="page-sections">
 <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
@@ -214,16 +263,16 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <section class="section-hero-home hide">
 </section>
 
-<section data-w-id="9ad2a096-1914-d62b-eba5-c58659c82d24" class="section-about-home" style="background-color: #BB4C4C;">
+<section data-w-id="9ad2a096-1914-d62b-eba5-c58659c82d24" class="section-about-home" style="background-color: #f7f2e2;">
 <div class="page-padding">
 <div class="container-large">
 <div class="padding-vertical padding-xhuge">
   
-  <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
-    <div style="flex: 1 1 300px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-      <img src="images/rohit.png" alt="Rohit Thakur" style="width: 100%; height: auto; display: block;">
+  <div class="about-layout">
+    <div class="about-photo-wrap">
+      <img src="images/rohit.png" alt="Rohit Thakur" class="about-photo">
     </div>
-    <div class="about-intro text-align-left" style="flex: 1 1 300px;">
+    <div class="about-intro text-align-left about-copy" style="text-align: left;">
       <h2 data-prevent-flicker="true" data-word-reveal="true" class="heading-style-h1">ABOUT ME</h2>
       <p data-prevent-flicker="true" data-line-reveal="true" class="heading-style-h5 text-weight-semibold text-color-heading" style="margin-top: 1.5rem;">Hi, I'm Rohit - a computer science undergrad who loves solving complex problems with code.<br></p>
       <p data-prevent-flicker="true" data-line-reveal="true" class="text-size-regular text-weight-light" style="margin-top: 1.5rem;">I am currently in my 3rd year pursuing a B.Tech in Computer Science and Engineering (AI/ML) at Lovely Professional University in Jalandhar.<br><br>My core focus is on data science, machine learning, and backend web development.</p>
@@ -233,6 +282,12 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 </div>
 </div>
 <div class="section-anchor is-about"></div>
+</div>
+
+<div style="opacity: 0;" class="hand-pointing_wrap">
+  <div class="hand-entry-motion">
+    <div class="hand-rotation"><img loading="lazy" src="images/about-pointing-hand.png" alt=""></div>
+  </div>
 </div>
 
 <div class="border-top is-light">
@@ -260,9 +315,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div id="about" class="section-anchor is-about"></div>
 </section>
 
-<section id="work" class="section-works-home" style="position: relative;">
-
-<div style="-webkit-transform:translate3d(40rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(27deg) skew(0, 0);-moz-transform:translate3d(40rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(27deg) skew(0, 0);-ms-transform:translate3d(40rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(27deg) skew(0, 0);transform:translate3d(40rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(27deg) skew(0, 0); position: absolute; right: 0; top: 10%; z-index: 10;" class="hand-pointing_wrap"><div class="hand-rotation"><img loading="lazy" src="images/about-pointing-hand.png" alt=""></div></div>
+<section id="work" class="section-works-home" style="position: relative; background-color: #f7f2e2; margin-top: -1px;">
 
 <div class="page-padding">
 <div class="spacer-huge"></div>
@@ -380,9 +433,10 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="max-width-large"><p data-line-reveal="true" class="text-size-medium"><b>Algo Tutor - AI Powered NLP</b> (June 2025 - Aug 2025)<br><br>Gained hands-on experience in NLP pipelines, text preprocessing, RNNs, LSTMs, Word Embeddings (Word2Vec), and Transformers. Developed a capstone project on Sentiment Analysis to apply learned concepts.</p></div>
 </div>
 
-<div class="spacer-medium"></div>
-<div style="margin-top: 2rem;">
-  <a href="images/Rohit Final CV.pdf" target="_blank" class="button w-inline-block">
+<div class="spacer-small"></div>
+<div style="margin-top: -7rem;">
+
+  <a href="images/Rohit Final CV.pdf" target="_blank" class="button w-inline-block resume-download-btn">
     <div class="button-text">Download My Resume</div>
   </a>
 </div>
@@ -423,7 +477,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">Creative Thinking</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Techniques and Tools for Success<br><br><a href="https://drive.google.com/file/d/16S-hxka7vpXWfr11kJkIntEW3J2EEycS/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Techniques and Tools for Success<br><br><a href="https://drive.google.com/file/d/16S-hxka7vpXWfr11kJkIntEW3J2EEycS/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -432,7 +486,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">AI-Powered NLP</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Issued by Algo Tutor<br><br><a href="https://drive.google.com/file/d/1voDOjVNIQlLUCvDHSZGMbKuSPX-cgJFD/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Issued by Algo Tutor<br><br><a href="https://drive.google.com/file/d/1voDOjVNIQlLUCvDHSZGMbKuSPX-cgJFD/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -441,7 +495,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">Generative AI Mastery</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Master Generative AI & Generative AI tools (ChatGPT & more)<br><br><a href="https://drive.google.com/file/d/1-CG8C0aeu-fc5pN7lW22_Jh13Yc75E3k/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Master Generative AI & Generative AI tools<br><br><a href="https://drive.google.com/file/d/1-CG8C0aeu-fc5pN7lW22_Jh13Yc75E3k/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -466,7 +520,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">Half Marathon Runner</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Successfully completed a half marathon. <br><br><a href="https://drive.google.com/file/d/15FXw08yUth8uqGSZHerdbH_gvuyOHFfE/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Successfully completed a half marathon. <br><br><a href="https://drive.google.com/file/d/15FXw08yUth8uqGSZHerdbH_gvuyOHFfE/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -475,7 +529,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">70 WPM Typing Speed</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Achieved a rank on the All-time "English 60s" Global Leaderboard on Monkey Type (Top 23.7%). <br><br><a href="https://drive.google.com/file/d/1J3J2sqEhep9h8N62n1AyXVQlZqKCRe6R/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Achieved a rank on the All-time "English 60s" Global Leaderboard on Monkey Type (Top 23.7%). <br><br><a href="https://drive.google.com/file/d/1J3J2sqEhep9h8N62n1AyXVQlZqKCRe6R/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -484,7 +538,7 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <div class="margin-bottom margin-medium">
 <h3 class="heading-medium text-color-accent">Hackathon Coordinator</h3>
 <div class="spacer-small"></div>
-<p class="text-size-small text-weight-light">Coordinated HackWithVertos Hackathon at Lovely Professional University, facilitating event flow. <br><br><a href="https://drive.google.com/file/d/1Xne6Oy5cI--mXPucoobwPudC2xdNhGg1/view?usp=sharing" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
+<p class="text-size-small text-weight-light">Coordinated HackWithVertos Hackathon at Lovely Professional University. <br><br><a href="https://drive.google.com/file/d/1Xne6Oy5cI--mXPucoobwPudC2xdNhGg1/view?usp=sharing" target="_blank" style="color: var(--colors--royal-blue); text-decoration: underline; font-weight: bold;">View Certificate</a></p>
 </div>
 </div>
 </div>
@@ -590,8 +644,10 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 </div>
 </div>
 
-<div class="sidebar">
-</div>
+<div class="sidebar"><div class="sidebar-top"><div class="sidebar-menu"><div class="menu-link"><div class="menu-link-mouseover"><div data-w-id="2447ef5e-7c9d-76b6-1d4e-4e733344f415" class="close-menu-link"><div class="menu-link-background"><div class="menu-line-wrapper"><div class="menu-line top"></div><div class="menu-line bottom"></div></div></div></div><div class="open-menu-link-wrapper"><div data-w-id="ea4269b7-8154-c917-e3c2-afe95701dacc" class="open-menu-link"><div class="menu-link-background"><div class="menu-line-wrapper"><div class="menu-line top"></div><div class="menu-line bottom"></div></div></div></div></div></div></div><div class="sidebar-menu-content"><div id="w-node-_5d99c3ac-57fc-8a8f-002a-bb08ac739172-f22b1058" class="sidebar-menu-block"><div class="title-wrapper"><div class="text-size-small">Navigation</div></div><div class="sidebar-menu-list"><a data-w-id="41a4dc7a-5f93-44c3-df1d-043e9e03bbb6" href="/" aria-current="page" class="sidebar-menu-item w-inline-block w--current"><div class="dot-wrapper nav-dot"><div class="form-number">01</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Home</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="d9764372-93c8-fb9f-b012-fe1695096776" href="#work" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">02</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Work</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="22524909-7f52-64a5-03eb-630bc50394d8" href="#about" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="dot-mouseover"><div class="dot"></div></div><div class="form-number">03</div></div><div class="sidebar-link-text">About</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="resume-menu" href="#resume" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">04</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Resume</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="cert-menu" href="#certifications" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">05</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Certifications</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="achievements-menu" href="#achievements" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">06</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Achievements</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="education-menu" href="#education" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">07</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="sidebar-link-text">Education</div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt=""></div></a><a data-w-id="46abdfa9-5836-3dcb-800d-532fed98e873" href="#contact-me" class="sidebar-menu-item w-inline-block"><div class="dot-wrapper nav-dot"><div class="form-number">08</div><div class="dot-mouseover"><div class="dot"></div></div></div><div class="menu-link-arrow"><img src="images/arrow-right-icon.svg" loading="lazy" alt="" class="menu-link-icon"></div><div class="sidebar-link-text">Contact</div></a></div></div><div id="w-node-bc0ff7f8-02a2-ac01-1fa3-d6dc91c6e26d-f22b1058" class="mega-menu-social"><div class="social-link-list"></div></div></div></div><div data-w-id="7417dd8f-cf33-f3ba-e338-f1e78c68b0b7" class="mega-menu-overlay"></div></div><div class="sidebar-bottom"><a href="#about" class="sidebar-link w-inline-block"><div class="sidebar-link-wrapper"><div data-w-id="489df0e8-fadb-57e8-15df-d5e7237f41df" class="menu-link-base"><div class="sidebar-link-background"><div class="scroll-down_arrow-icon w-embed"><svg width="420" height="420" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14.5899 16.0039L5.98193 7.39691L7.39593 5.98291L16.0029 14.5889V7.00391H18.0029V18.0039H7.00293V16.0039H14.5899Z" fill="currentColor"></path>
+  </svg></div></div></div></div></a></div></div>
+
 <div class="social-sidebar">
 <a href="https://github.com/RohitThakur2006" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-link">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.001 12.001 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -615,14 +671,14 @@ a { color: inherit; text-decoration: inherit; font-size: inherit; }
 <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,MotionPathPlugin);</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-	if (typeof window.gsap === "undefined") document.documentElement.classList.add("gsap-not-found");
-	gsap.registerPlugin(ScrollTrigger, SplitText);
+  if (typeof window.gsap === "undefined") document.documentElement.classList.add("gsap-not-found");
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 });
 </script>
 <script>
 document.fonts.ready.then(() => {
   document.querySelectorAll("[data-word-reveal='true']").forEach((text) => {
-	const delay = parseFloat(text.getAttribute("data-delay")) || 0.2;
+  const delay = parseFloat(text.getAttribute("data-delay")) || 0.2;
     const split = SplitText.create(text, { type: "words, chars", mask: "words", wordsClass: "word", charsClass: "char" });
     const tl = gsap.timeline({ scrollTrigger: { trigger: text, start: "top bottom", end: "top 80%", toggleActions: "none play none none" } });
     tl.from(split.words, { yPercent: 110, delay: delay, duration: 0.8, stagger: { amount: 0.5 } });
@@ -634,8 +690,8 @@ document.fonts.ready.then(() => {
 document.fonts.ready.then(() => {
   document.querySelectorAll("[data-line-reveal='true']").forEach((text) => {
     text.innerHTML = text.innerHTML.replace(/(\r\n|\n|\r)/gm, " ");
-	const delay = parseFloat(text.getAttribute("data-delay")) || 0.2;
-	SplitText.create(text, { type: "lines", autoSplit: true, mask: "lines", linesClass: "line", onSplit(self) {
+  const delay = parseFloat(text.getAttribute("data-delay")) || 0.2;
+  SplitText.create(text, { type: "lines", autoSplit: true, mask: "lines", linesClass: "line", onSplit(self) {
         return gsap.timeline({ scrollTrigger: { trigger: text, start: "top bottom", end: "top 80%", toggleActions: "none play none none" } })
         .from(self.lines, { yPercent: 110, delay: delay, duration: 0.8, stagger: { amount: 0.5 } });
       }
@@ -680,6 +736,38 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const contentTargets = gsap.utils.toArray([
+    ".section-works-home .project-item",
+    ".section_rocket-man .paragraph-intro",
+    ".section_rocket-man .intro-description",
+    ".section_rocket-man .why-me_item-wrap",
+    ".section-certifications .certification-item",
+    ".section-achievements .achievement-item",
+    ".section-education .education-item"
+  ].join(","));
+
+  if (!contentTargets.length) return;
+
+  gsap.set(contentTargets, { autoAlpha: 0, y: 26 });
+
+  ScrollTrigger.batch(contentTargets, {
+    start: "top 86%",
+    once: true,
+    onEnter: (batch) => {
+      gsap.to(batch, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.75,
+        ease: "power2.out",
+        stagger: 0.14,
+        overwrite: true
+      });
+    }
+  });
+});
+</script>
 <script src="js/lenis.min.js" defer=""></script>
 <script>
   window.addEventListener("load", () => {
@@ -699,31 +787,68 @@ window.addEventListener("DOMContentLoaded", () => {
 <script src="js/filter.min.js"></script>
 <script src="js/mixitup.min.js"></script>
 <script>
-// Hand pointing animation
+// CUSTOM HAND POINTING ANIMATION FIX
 window.addEventListener('load', () => {
-  gsap.to('.hand-pointing_wrap', { 
-    y: -15, 
-    duration: 2, 
-    ease: "sine.inOut", 
-    repeat: -1, 
-    yoyo: true, 
-    delay: 0.5 
-  });
-});
+  const hand = document.querySelector('.hand-pointing_wrap');
+  const handEntry = document.querySelector('.hand-entry-motion');
+  const about = document.querySelector('.section-about-home');
+  const handInner = document.querySelector('.hand-pointing_wrap .hand-rotation');
+  if (!hand || !handEntry || !about || !handInner) return;
 
-// Letter animation on navbar
-document.addEventListener("DOMContentLoaded", () => {
-  const letterAnimation = document.querySelector('.letter-animation');
-  if (letterAnimation) {
-    gsap.set(letterAnimation, { opacity: 1 });
-    gsap.fromTo(letterAnimation, 
-      { y: 30, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.3 }
-    );
+  const startHandIdle = () => {
+    gsap.killTweensOf(handInner);
+    gsap.set(handInner, { y: 0 });
+    gsap.to(handInner, {
+      y: -8,
+      duration: 2.4,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+      delay: 0.12
+    });
+  };
+
+  const revealHand = () => {
+    if (hand.dataset.entered === 'true') return;
+    hand.dataset.entered = 'true';
+    gsap.timeline({ defaults: { ease: 'expo.out' } })
+      .to(hand, { opacity: 1, duration: 0.28 }, 0)
+      .to(handEntry, { x: 0, duration: 1.55, onComplete: startHandIdle }, 0);
+  };
+
+  const revealThreshold = window.innerHeight * 0.74;
+  const aboutTop = about.getBoundingClientRect().top;
+  const isAboutAlreadyInView = aboutTop <= revealThreshold;
+
+  // Kill any stale transforms before setting initial state to prevent reload jumps.
+  gsap.killTweensOf(hand);
+  gsap.killTweensOf(handEntry);
+  gsap.killTweensOf(handInner);
+
+  if (isAboutAlreadyInView) {
+    gsap.set(hand, { opacity: 1 });
+    gsap.set(handEntry, { x: 0 });
+    hand.dataset.entered = 'true';
+    startHandIdle();
+  } else {
+    gsap.set(hand, { opacity: 0 });
+    gsap.set(handEntry, { x: '44rem' });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        revealHand();
+        observer.disconnect();
+      });
+    }, {
+      root: null,
+      threshold: 0,
+      rootMargin: '0px 0px -26% 0px'
+    });
+    observer.observe(about);
   }
 });
 
-// Slide-up-load animation on DOMContentLoaded
+// SLIDE-UP-LOAD ANIMATION
 window.addEventListener("DOMContentLoaded", () => {
   gsap.utils.toArray(".slide-up-load").forEach( (el) => {
     let delay = parseFloat(el.getAttribute("data-delay")) || 0;
